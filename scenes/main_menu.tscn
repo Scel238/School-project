@@ -1,0 +1,42 @@
+[gd_scene load_steps=4 format=3 uid="uid://bgerpejcnsx78"]
+
+[ext_resource type="Script" uid="uid://d2wu2njsw2tni" path="res://scripts/main_menu.gd" id="1_l6cm7"]
+[ext_resource type="LabelSettings" uid="uid://cbqt73yak77n4" path="res://additional resurces/labels/main_menu_label_settings.tres" id="2_bqqt6"]
+[ext_resource type="Texture2D" uid="uid://djftgftx22gpe" path="res://textures/eeee622f82cdde94b0e2e2ffa01dab37.png" id="2_ekxnf"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_l6cm7")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 29.0
+offset_top = 8.0
+offset_right = 274.0
+offset_bottom = 91.0
+text = "Robotopia"
+label_settings = ExtResource("2_bqqt6")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+offset_left = 26.0
+offset_top = 78.0
+offset_right = 296.0
+offset_bottom = 179.0
+text = "Start"
+
+[node name="Button2" type="Button" parent="."]
+offset_left = 26.0
+offset_top = 278.0
+offset_right = 298.0
+offset_bottom = 389.0
+text = "end"
+
+[node name="Eeee622f82Cdde94b0e2e2Ffa01Dab37" type="Sprite2D" parent="."]
+show_behind_parent = true
+visibility_layer = 8
+position = Vector2(362, 215.125)
+scale = Vector2(1.0027777, 0.8476332)
+texture = ExtResource("2_ekxnf")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed_start"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed_end"]

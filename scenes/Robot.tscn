@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://7eby5w52gs4j"]
+
+[ext_resource type="Shape2D" uid="uid://813kkb6ha5mi" path="res://additional resurces/robot_sphape_2d.tres" id="1_ktfjw"]
+[ext_resource type="Script" uid="uid://bt00s11t3b7sp" path="res://scripts/robot.gd" id="1_tctbf"]
+[ext_resource type="Texture2D" uid="uid://bsufli21fl5nw" path="res://textures/robot_animation/Sprite-robot1.png" id="2_tctbf"]
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_tctbf")
+
+[node name="SpriteRobot1" type="Sprite2D" parent="."]
+position = Vector2(130, 122)
+scale = Vector2(7.1764703, 7.1764708)
+texture = ExtResource("2_tctbf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(130.125, 122.625)
+shape = ExtResource("1_ktfjw")
