@@ -11,5 +11,6 @@ grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="SpriteUi" type="Sprite2D" parent="."]
-position = Vector2(364, 215)
+position = Vector2(363.15628, 214.50002)
+scale = Vector2(1.0069445, 1.0069445)
 texture = ExtResource("1_vx2ag")
