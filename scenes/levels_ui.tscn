@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://caijvnxasdg5i"]
+[gd_scene load_steps=4 format=3 uid="uid://caijvnxasdg5i"]
 
+[ext_resource type="Script" uid="uid://0nfgmrfbisox" path="res://scripts/levels_ui.gd" id="1_durdp"]
 [ext_resource type="Texture2D" uid="uid://bpoumbklov6ie" path="res://textures/Sprite-UI.png" id="1_vx2ag"]
+[ext_resource type="Texture2D" uid="uid://se27owjtyb0f" path="res://textures/Sprite-mistake.png" id="3_m1y2p"]
 
 [node name="Levels_UI" type="Control"]
 layout_mode = 3
@@ -8,9 +10,31 @@ anchor_right = 1.0013717
 anchor_bottom = 0.9976852
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_durdp")
 metadata/_edit_use_anchors_ = true
 
 [node name="SpriteUi" type="Sprite2D" parent="."]
 position = Vector2(363.15628, 214.50002)
 scale = Vector2(1.0069445, 1.0069445)
 texture = ExtResource("1_vx2ag")
+
+[node name="mistakes" type="Control" parent="."]
+anchors_preset = 0
+anchor_right = 1.0013698
+anchor_bottom = 0.9953596
+metadata/_edit_use_anchors_ = true
+
+[node name="SpriteMistake3" type="Sprite2D" parent="mistakes"]
+visible = false
+position = Vector2(164, 350)
+texture = ExtResource("3_m1y2p")
+
+[node name="SpriteMistake2" type="Sprite2D" parent="mistakes"]
+visible = false
+position = Vector2(106, 350)
+texture = ExtResource("3_m1y2p")
+
+[node name="SpriteMistake" type="Sprite2D" parent="mistakes"]
+visible = false
+position = Vector2(45, 349)
+texture = ExtResource("3_m1y2p")

@@ -1,12 +1,16 @@
 extends CharacterBody2D
 
-
 @export var speed = 400
 @export var direction = "Forward"
 @export var delta_direction = "Forward"
+var number_of_mistakes = 0
 
+signal mistake
 
-
+func _ready() :
+	for i in range(3):
+		await get_tree().create_timer(2.0).timeout
+		emit_signal("mistake")
 
 
 func rotate_m(Direction_a,delta_direcrion):
