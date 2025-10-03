@@ -19,7 +19,6 @@ config/icon="res://textures/icon.svg"
 
 window/size/viewport_width=729
 window/size/viewport_height=432
-window/size/mode=4
 window/stretch/mode="canvas_items"
 
 [rendering]
