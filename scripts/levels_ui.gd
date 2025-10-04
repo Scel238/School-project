@@ -24,3 +24,6 @@ func _on_character_body_2d_mistake():
 			mistake3_visibility = true
 			$mistakes/SpriteMistake3.visible = mistake3_visibility
 			emit_signal("end_game")
+
+func _on_end_game() :
+	$You_loose.visible = true

@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://caijvnxasdg5i"]
+[gd_scene load_steps=5 format=3 uid="uid://caijvnxasdg5i"]
 
 [ext_resource type="Script" uid="uid://0nfgmrfbisox" path="res://scripts/levels_ui.gd" id="1_durdp"]
 [ext_resource type="Texture2D" uid="uid://bpoumbklov6ie" path="res://textures/Sprite-UI.png" id="1_vx2ag"]
 [ext_resource type="Texture2D" uid="uid://se27owjtyb0f" path="res://textures/Sprite-mistake.png" id="3_m1y2p"]
+[ext_resource type="PackedScene" uid="uid://dwlu54lumpa4u" path="res://scenes/you_loose.tscn" id="4_m1y2p"]
 
 [node name="Levels_UI" type="Control"]
 layout_mode = 3
@@ -38,3 +39,9 @@ texture = ExtResource("3_m1y2p")
 visible = false
 position = Vector2(45, 349)
 texture = ExtResource("3_m1y2p")
+
+[node name="You_loose" parent="." instance=ExtResource("4_m1y2p")]
+visible = false
+layout_mode = 1
+
+[connection signal="end_game" from="." to="." method="_on_end_game"]

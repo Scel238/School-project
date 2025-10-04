@@ -1,38 +1,21 @@
-[gd_scene load_steps=6 format=4 uid="uid://d3lxh4xskr36s"]
+[gd_scene load_steps=5 format=4 uid="uid://d3lxh4xskr36s"]
 
 [ext_resource type="Script" uid="uid://dkfh0doe8fbhh" path="res://scripts/test_level.gd" id="1_paw1w"]
 [ext_resource type="PackedScene" uid="uid://7eby5w52gs4j" path="res://scenes/Robot.tscn" id="2_j6w7d"]
-[ext_resource type="Script" uid="uid://d3pn7ogp466xo" path="res://scenes/button.gd" id="3_j6w7d"]
 [ext_resource type="TileSet" uid="uid://dlunobaprl85n" path="res://textures/tile_maps/main_levels_tile_set.tres" id="4_x4b8f"]
 [ext_resource type="PackedScene" uid="uid://caijvnxasdg5i" path="res://scenes/levels_ui.tscn" id="5_tmr53"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_paw1w")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-layer = 2
-
-[node name="CharacterBody2D" parent="CanvasLayer" instance=ExtResource("2_j6w7d")]
-top_level = true
-visibility_layer = 15
+[node name="CharacterBody2D" parent="." instance=ExtResource("2_j6w7d")]
 position = Vector2(287, 216.00002)
 scale = Vector2(0.066937685, 0.066937685)
 
-[node name="TileMapLayer" type="TileMapLayer" parent="CanvasLayer"]
-show_behind_parent = true
-position = Vector2(-72, -41)
-scale = Vector2(0.8760436, 0.59122986)
-tile_map_data = PackedByteArray("AAAKAAsAAAABAAEAAAAOAAsAAAABAAEAAAANAA4AAAABAAEAAAALAA0AAAABAAEAAAAKAA0AAAABAAEAAAASAAkAAAABAAEAAAASAAoAAAABAAEAAAASAAsAAAABAAEAAAARAAsAAAABAAEAAAAQAAsAAAABAAEAAAAHAAsAAAABAAEAAAAJAAwAAAABAAEAAAARAAoAAAABAAEAAAARAAwAAAABAAEAAAAQAAoAAAABAAEAAAAPABMAAAAFAAAAAAAPABIAAAAFAAAAAAAOABIAAAAFAAAAAAANABIAAAAFAAAAAAANABMAAAAFAAAAAAAOABMAAAAFAAAAAAAQABMAAAAFAAAAAAAQABIAAAAFAAAAAAAQABEAAAAFAAAAAAAQABAAAAAFAAAAAAAPABAAAAAFAAAAAAAOABAAAAAFAAAAAAANABAAAAAFAAAAAAANABEAAAAFAAAAAAAPABEAAAAFAAAAAAARAA8AAAAFAAAAAAARAA4AAAAFAAAAAAARAA0AAAAFAAAAAAAQAA0AAAAFAAAAAAAPAA0AAAAFAAAAAAAOAA0AAAAFAAAAAAANAA0AAAAFAAAAAAAMAA4AAAAFAAAAAAAMAA8AAAAFAAAAAAALABAAAAAFAAAAAAAMABEAAAAFAAAAAAAMABIAAAAFAAAAAAARABMAAAAFAAAAAAASABMAAAAFAAAAAAASABIAAAAFAAAAAAASABEAAAAFAAAAAAARABEAAAAFAAAAAAAOABEAAAAFAAAAAAARABIAAAAFAAAAAAARABAAAAAFAAAAAAA=")
-tile_set = ExtResource("4_x4b8f")
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 2
 
-[node name="Button" type="Button" parent="."]
-offset_left = 497.0
-offset_top = 13.0
-offset_right = 825.0
-offset_bottom = 175.0
-script = ExtResource("3_j6w7d")
-
-[node name="Levels_UI" parent="." instance=ExtResource("5_tmr53")]
+[node name="Levels_UI" parent="CanvasLayer" instance=ExtResource("5_tmr53")]
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
@@ -43,5 +26,12 @@ offset_bottom = 1.0
 grow_horizontal = 1
 grow_vertical = 1
 
-[connection signal="mistake" from="CanvasLayer/CharacterBody2D" to="Levels_UI" method="_on_character_body_2d_mistake"]
-[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
+[node name="TileMapLayer" type="TileMapLayer" parent="CanvasLayer"]
+light_mask = 4
+visibility_layer = 4
+position = Vector2(-96, -55.000004)
+scale = Vector2(0.8760436, 0.59122986)
+tile_map_data = PackedByteArray("AAAKAAsAAAABAAEAAAAOAAsAAAABAAEAAAANAA4AAAABAAEAAAALAA0AAAABAAEAAAAKAA0AAAABAAEAAAASAAkAAAABAAEAAAASAAoAAAABAAEAAAASAAsAAAABAAEAAAARAAsAAAABAAEAAAAQAAsAAAABAAEAAAAHAAsAAAABAAEAAAAJAAwAAAABAAEAAAARAAoAAAABAAEAAAARAAwAAAABAAEAAAAQAAoAAAABAAEAAAAPABMAAAAFAAAAAAAPABIAAAAFAAAAAAAOABIAAAAFAAAAAAANABIAAAAFAAAAAAANABMAAAAFAAAAAAAOABMAAAAFAAAAAAAQABMAAAAFAAAAAAAQABIAAAAFAAAAAAAQABEAAAAFAAAAAAAQABAAAAAFAAAAAAAPABAAAAAFAAAAAAAOABAAAAAFAAAAAAANABAAAAAFAAAAAAANABEAAAAFAAAAAAAPABEAAAAFAAAAAAARAA8AAAAFAAAAAAARAA4AAAAFAAAAAAARAA0AAAAFAAAAAAAQAA0AAAAFAAAAAAAPAA0AAAAFAAAAAAAOAA0AAAAFAAAAAAANAA0AAAAFAAAAAAAMAA4AAAAFAAAAAAAMAA8AAAAFAAAAAAALABAAAAAFAAAAAAAMABEAAAAFAAAAAAAMABIAAAAFAAAAAAARABMAAAAFAAAAAAASABMAAAAFAAAAAAASABIAAAAFAAAAAAASABEAAAAFAAAAAAARABEAAAAFAAAAAAAOABEAAAAFAAAAAAARABIAAAAFAAAAAAARABAAAAAFAAAAAAA=")
+tile_set = ExtResource("4_x4b8f")
+
+[connection signal="mistake" from="CharacterBody2D" to="CanvasLayer/Levels_UI" method="_on_character_body_2d_mistake"]
